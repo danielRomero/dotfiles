@@ -1,5 +1,14 @@
-call plug#begin('~/.vim/plugged')
+let $PLUG_FILE = $HOME . "/.vim/settings/plugins.plug"
 
-Plug 'scrooloose/nerdtree'
+if filereadable($PLUG_FILE)
+  source $PLUG_FILE
+endif
 
-call plug#end()
+" Function to source all .vim files in directory
+function! SourceDirectory(file)
+  for s:fpath in split(globpath(a:file, '*.vim'), '\n')
+    exe 'source' s:fpath
+  endfor
+endfunction
+
+call SourceDirectory('~/.vim/settings')
