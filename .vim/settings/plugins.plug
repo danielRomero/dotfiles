@@ -11,4 +11,7 @@ Plug 'itchyny/lightline.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+" A dark theme for Vim
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()

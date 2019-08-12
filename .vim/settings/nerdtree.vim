@@ -10,3 +10,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
