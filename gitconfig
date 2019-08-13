@@ -1,0 +1,9 @@
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	signingkey = 7DA9FF5CBB1D273C
+[commit]
+	gpgsign = true
+[pager]
+        diff = diff-so-fancy | less --tabs=1,5 -RFX
+        show = diff-so-fancy | less --tabs=1,5 -RFX
