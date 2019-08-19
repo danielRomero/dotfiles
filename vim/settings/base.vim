@@ -1,11 +1,19 @@
 " Base configuration for vim
-let mapleader="<Ctrl>"
+let mapleader="'"
 
+" enable syntax higlithing
 syntax on
+
+filetype plugin indent on
+filetype on
+filetype indent on
+
+" coloscheme
 color dracula
 
 set nocompatible            " Disable vi compatibility
 filetype plugin indent on   " enable detection, plugins and indent
+set noshowmode              " Hide reduntant vim mode
 
 " --- history / file handling ---
 set history=999             " Increase history (default = 20)
@@ -36,11 +44,13 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set shiftround
-set splitbelow                                    " Open new split panes to right and bottom, which feels more natural
+set splitbelow              " Open new split panes to right and bottom, which feels more natural
 set splitright
-set scrolloff=8                                   "Start scrolling when we're 8 lines away from margins
+set scrolloff=8             " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
+set backspace=indent,eol,start
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -52,3 +62,20 @@ nnoremap <C-l> <C-w>l
 nnoremap tl :tabnext<CR>
 nnoremap th :tabprev<CR>
 nnoremap tn :tabnew<CR>
+
+" Save shortcuts ?????????
+nnoremap <Leader>x :x<cr>
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>s :update<cr>
+nnoremap <C-s> :update<cr>
+" asd 
+" Quit shortcuts ??????????
+inoremap <C-Q> <esc>:q<cr>
+nnoremap <C-Q> :q<cr>
+vnoremap <C-Q> <esc>
+
+inoremap <C-w> <esc>:q<cr>
+nnoremap <C-w> :q<cr>
+vnoremap <C-w> <esc>
+
+nnoremap <Leader>a :ALEFix<cr>
