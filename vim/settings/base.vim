@@ -8,6 +8,10 @@ filetype plugin indent on
 filetype on
 filetype indent on
 
+" show withespaces
+:set list
+:set listchars=space:·,trail:·,tab:--,extends:>,precedes:<
+
 " coloscheme
 color dracula
 
