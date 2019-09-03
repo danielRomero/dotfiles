@@ -9,8 +9,8 @@ filetype on
 filetype indent on
 
 " show withespaces
-:set list
-:set listchars=space:·,trail:·,tab:--,extends:>,precedes:<
+set list
+set listchars=space:·,trail:·,tab:--,extends:>,precedes:<
 
 " coloscheme
 color dracula
@@ -163,4 +163,6 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+" --- GitGutter
 
+set updatetime=1000 " update time interval 1 second
