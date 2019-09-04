@@ -35,9 +35,8 @@ set incsearch               " show the `best match so far' astyped
 set ignorecase smartcase    " make searches case-insensitive, unless they
                             "   contain upper-case letters
 
-" --- remove sounds effects ---
-set noerrorbells
-set visualbell
+" --- remove sounds effects and visual bells ---
+set noerrorbells visualbell t_vb=
 
 " Mouse and cursor
 set mouse=a                 " Enable mouse mode
@@ -104,22 +103,25 @@ let g:ale_sign_warning = '-'
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
 
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_sign_column_always = 1
+
+let g:ale_linters = {}
+
+" ALE elixir config
 augroup elixir
   nnoremap <leader>r :! elixir %<cr>
   autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 augroup END
 
-let g:ale_linters = {}
 let g:ale_linters.elixir = ['elixir-ls', 'credo']
-let g:ale_linters.ruby = ['rubocop', 'ruby']
-
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-let g:ale_fixers.ruby = ['rubocop']
 let g:ale_fixers.elixir = ['mix_format']
-
-let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_elixir_elixir_ls_release = '~/vim/elixir-ls/rel'
-let g:ale_sign_column_always = 1
+
+" ALE ruby config
+let g:ale_fixers.ruby = ['rubocop']
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_linters.ruby = ['rubocop', 'ruby']
 
 " --- NerdTree
 
@@ -183,4 +185,4 @@ let g:lightline = {
       \ }
 " --- GitGutter
 
-set updatetime=1000 " update time interval 1 second
+set updatetime=4000 " update time interval 4 seconds
