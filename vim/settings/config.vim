@@ -14,6 +14,7 @@ set listchars=space:·,trail:·,tab:--,extends:>,precedes:<
 
 " coloscheme
 color dracula
+set termguicolors
 
 set nocompatible            " Disable vi compatibility
 filetype plugin indent on   " enable detection, plugins and indent
@@ -57,6 +58,7 @@ set splitright
 set scrolloff=8             " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+set expandtab
 
 set backspace=indent,eol,start
 
@@ -92,16 +94,29 @@ vnoremap <C-w> <esc>
 nnoremap <Leader>a :ALEFix<cr>
 let g:ale_set_loclist = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_fixers = {
-      \   'ruby': ['rubocop'],
-      \}
-let g:ale_linters = {
-      \   'ruby': ['rubocop'],
-      \}
 
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '-'
+
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+
+augroup elixir
+  nnoremap <leader>r :! elixir %<cr>
+  autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
+augroup END
+
+let g:ale_linters = {}
+let g:ale_linters.elixir = ['elixir-ls', 'credo']
+let g:ale_linters.ruby = ['rubocop', 'ruby']
+
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers.ruby = ['rubocop']
+let g:ale_fixers.elixir = ['mix_format']
+
 let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_elixir_elixir_ls_release = '~/vim/elixir-ls/rel'
+let g:ale_sign_column_always = 1
 
 " --- NerdTree
 
@@ -154,7 +169,7 @@ let g:fzf_colors =
 " --- Lightline
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]

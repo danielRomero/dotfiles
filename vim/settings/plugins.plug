@@ -31,7 +31,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 
 "ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
-"Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby'
+Plug 'mhanberg/vim-elixir'
 call plug#end()
