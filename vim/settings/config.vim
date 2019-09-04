@@ -15,6 +15,9 @@ set listchars=space:·,trail:·,tab:--,extends:>,precedes:<
 " coloscheme
 color dracula
 set termguicolors
+let g:dracula_italic = 0
+colorscheme dracula
+highlight Normal ctermbg=None
 
 set nocompatible            " Disable vi compatibility
 filetype plugin indent on   " enable detection, plugins and indent
