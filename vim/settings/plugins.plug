@@ -36,4 +36,6 @@ endif
 
 Plug 'mhanberg/vim-elixir', has('iex') ? {} : { 'on': [] }
 
+Plug 'rhysd/vim-crystal'
+
 call plug#end()

@@ -113,7 +113,6 @@ augroup elixir
   nnoremap <leader>r :! elixir %<cr>
   autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 augroup END
-
 let g:ale_linters.elixir = ['elixir-ls', 'credo']
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_elixir_elixir_ls_release = '~/vim/elixir-ls/rel'
@@ -122,6 +121,10 @@ let g:ale_elixir_elixir_ls_release = '~/vim/elixir-ls/rel'
 let g:ale_fixers.ruby = ['rubocop']
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_linters.ruby = ['rubocop', 'ruby']
+
+" ALE crystal config
+
+let g:ale_linters.crystal = ['ameba', 'crystal']
 
 " --- NerdTree
 
