@@ -64,6 +64,7 @@ set expandtab
 
 set backspace=indent,eol,start
 
+set autoread                " auto reload file when changes outside of vim (eg. on git changes)
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -95,6 +96,7 @@ vnoremap <C-w> <esc>
 " --- ALE
 nnoremap <Leader>a :ALEFix<cr>
 let g:ale_set_loclist = 1
+let g:ale_fix_on_save = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_sign_error = '>'
@@ -123,8 +125,10 @@ let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_linters.ruby = ['rubocop', 'ruby']
 
 " ALE crystal config
-
 let g:ale_linters.crystal = ['ameba', 'crystal']
+
+" ALE zsh config
+let g:ale_linters.zsh = ['shell']
 
 " --- NerdTree
 
